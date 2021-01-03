@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://muhammadmoiz367:EOi5dpJuGVW3paUJ@testcluster.ki7wv.mongodb.net/developer-hub?retryWrites=true&w=majority",
-    "jwtScretKey": "mySecretJWTKey"
+    "jwtScretKey": "mySecretJWTKey",
+    "githubClientID": "ea5305310c84f160c2eb",
+    "githubSecretKey": "309ef20502a08e3b7266e49ef4b5e4ddb0171a5b"
 }
