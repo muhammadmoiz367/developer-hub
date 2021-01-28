@@ -1,24 +1,28 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import {FaUserCircle} from 'react-icons/fa'
-import { Link } from 'react-router-dom';
+import {FaUserAlt} from 'react-icons/fa'
+import { Link, Redirect } from 'react-router-dom';
+import {connect} from 'react-redux'
+
+import {setAlert} from '../redux/actions/alert'
+import {signUp} from '../redux/actions/auth'
+import { Button } from 'antd';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
     '& > *': {
       width: theme.spacing(52),
-      height: theme.spacing(70),
+      height: theme.spacing(67),
     },
-    marginTop: '5rem',
-    marginLeft: '20rem',
+    
+    marginLeft: '28% !important',
     borderRadius: '25px'
   },
 }));
 
-function SignUp() {
+function SignUp(props) {
     const classes = useStyles();
     const [formData, setFormData]=useState({
         name: '',
@@ -38,41 +42,28 @@ function SignUp() {
     const onSubmitHandler=async e=>{
         e.preventDefault();
         if(password !== confirmPassword){
-            console.log('Password did not match')
+            props.setAlert('Password did not match', 'danger', 3000)
         }
         else{
             console.log(formData)
-            // const newUser={
-            //     name,
-            //     email,
-            //     password
-            // }
-            // try {
-            //     const config={
-            //         headers:{
-            //             'Content-Type': 'application/json'
-            //         }
-            //     }
-            //     const body=JSON.stringify(newUser)
-            //     const res=await axios.post('/api/users', body, config)
-            //     console.log(res.data)
-            // } catch (error) {
-            //     console.error(error.response.data)
-            // }
+            props.signUp({ name, email, password })
         }
+    }
+
+    if(props.isAuthenticated){
+        return <Redirect to="/dashboard" />
     }
     return (
         <div className={classes.root}>
-            <Paper elevation={3}>
-            <h1 className="large text-primary" style={{textAlign: 'center', paddingTop: '2rem'}}>Sign Up</h1>
-            <p className="lead" style={{textAlign: 'center'}}><FaUserCircle style={{verticalAlign: 'middle'}} /> Create Your Account</p>
-            <br/>
+            <Paper elevation={4}>
+            <h1 className="large text-primary" style={{textAlign: 'center', paddingTop: '1.5rem'}}>Sign Up</h1>
+            <p className="lead" style={{marginLeft: '20%'}}><FaUserAlt style={{verticalAlign: 'middle'}} /> Create Your Account</p>
             <form className="form" onSubmit={e=>onSubmitHandler(e)}>
                 <div className="form-group">
-                    <input type="text" placeholder="Name" name="name" value={name} onChange={(e)=>onChangeHandler(e)} required />
+                    <input type="text" placeholder="Name" name="name" value={name} onChange={(e)=>onChangeHandler(e)} />
                 </div>
                 <div className="form-group">
-                    <input type="email" placeholder="Email Address" name="email" value={email} onChange={(e)=>onChangeHandler(e)} required />
+                    <input type="email" placeholder="Email Address" name="email" value={email} onChange={(e)=>onChangeHandler(e)} />
                 </div>
                 <div className="form-group">
                     <input
@@ -81,7 +72,6 @@ function SignUp() {
                         name="password"
                         value={password} 
                         onChange={(e)=>onChangeHandler(e)}
-                        minLength="6"
                     />
                 </div>
                 <div className="form-group">
@@ -89,12 +79,13 @@ function SignUp() {
                         type="password"
                         placeholder="Confirm Password"
                         name="confirmPassword"
-                        minLength="6"
                         value={confirmPassword} 
                         onChange={(e)=>onChangeHandler(e)}
                     />
                 </div>
-                <input type="submit" className="btn btn-primary" value="Register" />
+                <Button htmlType="submit" type="primary" shape="round" size="large" >
+                    Sign up
+                </Button>
             </form>
             <p className="m-1">
                 Already have an account? <Link to="/login">Sign In</Link>
@@ -104,4 +95,10 @@ function SignUp() {
     )
 }
 
-export default SignUp
+const mapStateToProps=state=>{
+    return{
+        isAuthenticated: state.auth.isAuthenticated
+    }
+}
+
+export default connect(mapStateToProps, { setAlert, signUp })(SignUp);

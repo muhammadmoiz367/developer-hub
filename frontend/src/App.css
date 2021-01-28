@@ -41,7 +41,7 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 2rem;
   margin-bottom: 3rem;
 }
 
@@ -50,17 +50,19 @@ img {
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .large {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: .5rem;
+  margin-left: 2.5rem;
 }
 
 .lead {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
+  margin-left: 2.5rem;
 }
 
 .text-center {
@@ -131,7 +133,7 @@ img {
   display: inline-block;
   background: var(--light-color);
   color: #333;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -152,10 +154,12 @@ img {
 
 .alert {
   padding: 0.8rem;
-  margin: 1rem 0;
+  margin: 0rem auto 1rem auto;
+  width: 80%;
   opacity: 0.9;
   background: var(--light-color);
   color: #333;
+  text-align: center !important;
 }
 
 .btn-primary,
@@ -210,7 +214,11 @@ img {
 .btn:hover {
   opacity: 0.8;
 }
-
+.delete-account-btn{
+  float: right;
+  width: 20%; 
+  margin-top: -2.5rem; 
+}
 .bg-light,
 .badge-light {
   border: #ccc solid 1px;
@@ -238,13 +246,14 @@ img {
 
 /* Forms */
 .form .form-group {
-  margin: 1.2rem 0;
+  margin: 2rem 0;
 }
 
 .form .form-text {
   display: block;
   margin-top: 0.3rem;
   color: #888;
+  margin-left: 2.5rem;
 }
 
 .form input[type='text'],
@@ -258,8 +267,8 @@ img {
   border-radius: 15px;
   padding: 0.4rem;
   margin: 0 auto;
-  margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
   border: 1px solid #ccc;
 }
 
@@ -305,13 +314,70 @@ button {
   background: var(--light-color);
 }
 
+.ant-input-affix-wrapper-lg{
+  border-radius: 5px;
+}
+.profile-form{
+  display: flex;
+  flex-direction: column;
+  margin-left: 6rem;
+  width: 65%;
+}
+.date{
+
+}
+.date .date-input{
+  width: 35%; 
+  margin-right: 1rem; 
+  border-color: rgb(228, 225, 225);
+  padding: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 5px
+}
+.date .date-input:focus{
+  outline: none !important;
+  border-color: #719ECE;
+  box-shadow: 0 0 5px #719ECE;
+}
+.date-input-label{
+  margin: .5rem .5rem;
+  margin-right: 3rem;
+}
+.date-input-label:last-child{
+  display: block;
+}
+.social-link{
+  margin: .6rem;
+  margin-right: 1rem;
+}
+.social-input{
+  display: flex;
+  flex-direction: row;
+}
+.profile-submit-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between !important;
+  align-items: stretch;
+}
+.back-btn{
+  background: var(--light-color);
+  color: #333;
+}
+.back-btn:hover{
+  background: var(--light-color);
+  color: #333;
+  border-color: lightgray
+}
+
 /* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.7rem 2rem;
-  position: fixed;
+  padding: .7rem 2rem;
+  padding-bottom: .2rem;
   z-index: 1;
   width: 100%;
   top: 0;
