@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { Input, Checkbox, Button, DatePicker } from 'antd';
+import { Input, Checkbox, Button} from 'antd';
 import { FaCodeBranch } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
 import { MdTitle } from 'react-icons/md';
@@ -23,7 +23,6 @@ const AddExperience = ({ addExperience, history }) => {
     current: true,
     description: '',
   });
-  const dateFormat = "YYYY-MM-DD";
   const { company, title, location, from, to, current, description } = formData;
 
   const handleChange = (e) => {

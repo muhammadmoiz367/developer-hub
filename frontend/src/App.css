@@ -57,6 +57,7 @@ img {
   font-size: 2rem;
   margin-bottom: .5rem;
   margin-left: 2.5rem;
+  color: white;
 }
 
 .lead {
@@ -216,8 +217,8 @@ img {
 }
 .delete-account-btn{
   float: right;
-  width: 20%; 
-  margin-top: -2.5rem; 
+  width: 17%; 
+  margin-top: -2.8rem; 
 }
 .bg-light,
 .badge-light {
@@ -323,9 +324,6 @@ button {
   margin-left: 6rem;
   width: 65%;
 }
-.date{
-
-}
 .date .date-input{
   width: 35%; 
   margin-right: 1rem; 
@@ -425,12 +423,12 @@ button {
 /* Profiles Page */
 .profile {
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: 1fr 2fr 2fr;
   align-items: center;
   grid-gap: 2rem;
   padding: 1rem;
   line-height: 1.8;
-  margin-bottom: 1rem;
+  margin: 1rem 2rem;
 }
 
 /* Profile Page */
@@ -454,7 +452,7 @@ button {
 }
 
 .profile-top img {
-  width: 250px;
+  width: 200px;
 }
 
 .profile-top .icons a {
@@ -479,11 +477,11 @@ button {
 }
 
 .profile-exp {
-  grid-area: exp;
+  grid-area: 'exp';
 }
 
 .profile-edu {
-  grid-area: edu;
+  grid-area: 'edu';
 }
 
 .profile-exp h2,

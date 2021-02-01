@@ -59,7 +59,7 @@ const EditProfile = ({ profile: { profile, loading}, getCurrentUserProfile, crea
             linkedin: loading || !profile.social ? "" : profile.social.linkedin,
             youtube: loading || !profile.social ? "" : profile.social.youtube
         })
-    }, [loading])
+    }, [loading, getCurrentUserProfile])
 
     return (
         <Fragment>

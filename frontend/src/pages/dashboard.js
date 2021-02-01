@@ -14,7 +14,7 @@ import Education from '../components/education'
 function Dashboard({ auth: {user}, profile: {profile, loading}, getCurrentUserProfile, deleteAccount}) {
     useEffect(()=>{
         getCurrentUserProfile()
-    }, [])
+    }, [getCurrentUserProfile])
     console.log(profile)
     return (
         <Fragment>
