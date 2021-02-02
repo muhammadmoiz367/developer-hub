@@ -20,6 +20,8 @@ import AddExperience from './components/addExperience';
 import AddEducation from './components/addEducation';
 import Profiles from './pages/profiles';
 import ProfilePage from './pages/profilePage';
+import Posts from './pages/posts';
+import PostPage from './pages/postPage';
 
 if(localStorage.token){
   setAuthToken(localStorage.getItem('token'))
@@ -43,6 +45,8 @@ const App=()=>{
               <Route path="/profiles" component={Profiles} />
               <Route path="/profile/:id" component={ProfilePage} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/posts" component={Posts} />
+              <PrivateRoute exact path="/post/:id" component={PostPage} />
               <PrivateRoute exact path="/create-profile" component={CreateProfile} />
               <PrivateRoute exact path="/edit-profile" component={EditProfile} />
               <PrivateRoute exact path="/add-education" component={AddEducation} />

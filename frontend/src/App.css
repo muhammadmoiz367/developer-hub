@@ -131,7 +131,7 @@ img {
 }
 
 .btn {
-  display: inline-block;
+  display: inline;
   background: var(--light-color);
   color: #333;
   border-radius: 15px;
@@ -535,16 +535,27 @@ button {
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 
 .post > div:first-child {
   text-align: center;
 }
 
+.post > div:last-child div{
+  display: flex;
+  margin-left: -2rem;
+}
 .post img {
   width: 100px;
 }
-
+.add-post-header{
+  background-color: var(--primary-color);
+  margin-left: 2.3rem;
+  margin-right: 2.5rem;
+  padding: .5rem;;
+}
 .post .comment-count {
   background: var(--light-color);
   color: var(--primary-color);

@@ -142,7 +142,8 @@ const Profile = ({profile, auth, repos, getGithubRepos}) => {
                 }
             </div>            
             {/* Github repos */}
-            <div class="profile-github">
+            {repos.length>0 && (
+                <div class="profile-github">
                 <h2 class="text-primary my-1">
                     <FaGithub /> Github Repos
                 </h2>
@@ -169,6 +170,7 @@ const Profile = ({profile, auth, repos, getGithubRepos}) => {
                     )
                 }
             </div>
+            )}
         </Fragment>
     )
 }
